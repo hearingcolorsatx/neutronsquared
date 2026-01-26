@@ -1,46 +1,82 @@
 <!DOCTYPE HTML>
-<!--
-	Eventually by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
-	<head>
-		<title>Eventually by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<head>
+    <title>neutron squared</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="is-preload">
 
-		<!-- Header -->
-			<header id="header">
-				<h1>Eventually</h1>
-				<p>A simple template for telling the world when you'll launch<br />
-				your next big thing. Brought to you by <a href="http://html5up.net">HTML5 UP</a>.</p>
-			</header>
+    <!-- Header -->
+    <header id="header">
+        <!-- <h1></h1>
+        <p><br />
+        </a></p> -->
+    </header>
 
-		<!-- Signup Form -->
-			<form id="signup-form" method="post" action="#">
-				<input type="email" name="email" id="email" placeholder="Email Address" />
-				<input type="submit" value="Sign Up" />
-			</form>
+    <!-- Player Section -->
+    <div id="playerSection" style="text-align: center; margin: 20px 0;"></div>
+    <!-- <div id="playerSection"></div> -->
 
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Untitled.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</footer>
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" onclick="loadPlayer('spotify')" class="icon brands fa-spotify custom-icon"><span class="label">Spotify</span></a></li>
+            <li><a href="#" onclick="loadPlayer('apple')" class="icon brands fa-apple custom-icon"><span class="label">Apple Music</span></a></li>
+            <li><a href="#" onclick="loadPlayer('soundcloud')" class="icon brands fa-soundcloud custom-icon"><span class="label">SoundCloud</span></a></li>
+            <li><a href="#" onclick="loadPlayer('youtube')" class="icon brands fa-youtube custom-icon"><span class="label">YouTube Music</span></a></li>
+            <!-- <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li> -->
+        </ul>
+        <ul class="copyright">
+            <li>&copy; 2021-<span id="currentYear"></span> <a href="https://hearingcolors.com"> Hearing Colors LLC</a>. All rights reserved.</li>
+        </ul>
+    </footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/main.js"></script>
+    <!-- Scripts -->
+    <script>
+        const currentYear = new Date().getFullYear();
+        document.getElementById('currentYear').textContent = currentYear;
 
-	</body>
+
+        let activeService = null;
+
+        function loadPlayer(service) {
+            if (activeService === service) {
+                document.getElementById('playerSection').innerHTML = '';
+                activeService = null;
+                return;
+            }
+
+            let playerHTML = '';
+            switch (service) {
+                case 'soundcloud':
+                    playerHTML = `
+                    <iframe width="600" height="600" scrolling="yes" frameborder="yes" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/888528673&color=%2314102b&auto_play=true&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+                    <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100; text-align: center">
+                        <a href="https://soundcloud.com/neutronsquared" title="neutron squared" target="_blank" style="color: #cccccc; text-decoration: none;">neutron squared</a> · 
+                        <a href="https://soundcloud.com/neutronsquared/looking-to-the-stars-for-direction-radio-edit" title="Looking to the Stars for Direction (Hearing Colors) [Radio Edit]" target="_blank" style="color: #cccccc; text-decoration: none;">Looking to the Stars for Direction (Hearing Colors) [Radio Edit]</a>
+                    </div>`;
+                    break;
+                case 'spotify':
+                    playerHTML = `
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7HX5nTBxYSohWqfEa5u0GQ?utm_source=generator" width="75%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+                    break;
+                case 'apple':
+                    playerHTML = `
+                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/album/looking-to-the-stars-for-direction-hearing-colors/1546858178?i=1546858179"></iframe>`;
+                    break;
+                case 'youtube':
+                    playerHTML = `
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/jLrvtvYyIGE?si=D0J7CTyKF-nwySTT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+                    break; 
+            }
+            document.getElementById('playerSection').innerHTML = playerHTML;
+            activeService = service;
+        }
+    </script>
+    <script src="assets/js/main.js"></script>
+
+</body>
 </html>
