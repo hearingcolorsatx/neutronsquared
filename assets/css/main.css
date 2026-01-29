@@ -994,10 +994,16 @@ button,
   flex: 1 0 auto;
   position: relative;
   justify-content: center;
-  /* padding: 20px 0; */
+  padding: 20px 0;
 }
 
 #playerSection iframe {
   max-width: 100%;
   justify-self: center;
+}
+
+#soundcloud {
+  max-width: 100%;
+  justify-self: center;
+  margin-top: 10em;
 }
