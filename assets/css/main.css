@@ -27,8 +27,20 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
 
+/* added by user */
+
+html, body {
+  height: 100%;
+}
+
+/* end user added */
+
 body {
-  line-height: 1; }
+  line-height: 1; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 ol, ul {
   list-style: none; }
@@ -69,6 +81,7 @@ body {
 
 @media screen and (max-width: 480px) {
   html, body {
+    min-height: 100vh;
     min-width: 320px; } }
 
 html {
@@ -83,14 +96,16 @@ html, body {
   width: 100%; }
   @media screen and (max-height: 640px) {
     html, body {
-      height: auto;
+      height: 100%;
       min-height: 100%; } }
 
 body {
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   -moz-flex-direction: column;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -100,7 +115,8 @@ body {
   -ms-justify-content: center;
   justify-content: center;
   background-color: #000;
-  padding: 6em 4em 4em 4em; }
+  padding: 6em 4em 4em 4em;
+}
   body.is-preload *, body.is-preload *:before, body.is-preload *:after {
     -moz-animation: none !important;
     -webkit-animation: none !important;
@@ -129,26 +145,28 @@ body {
   -webkit-transition: opacity 2s ease-in-out;
   -ms-transition: opacity 2s ease-in-out;
   transition: opacity 2s ease-in-out;
-  height: 100%;
-  left: 0;
+  height: 125%;
+  left: -50%;
   opacity: 0.375;
   position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1; }
+  top: -94%;
+  width: 125%;
+  z-index: 1;
+  background-repeat: no-repeat; }
   #bg div {
     -moz-transition: opacity 3s ease;
     -webkit-transition: opacity 3s ease;
     -ms-transition: opacity 3s ease;
     transition: opacity 3s ease;
-    background-size: cover;
-    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 175%;
     left: 0;
     opacity: 0;
     position: absolute;
     top: 0;
     visibility: hidden;
-    width: 150%; }
+    width: 175%; }
     #bg div.visible {
       -moz-animation: bg 45s linear infinite;
       -webkit-animation: bg 45s linear infinite;
@@ -261,7 +279,7 @@ a {
   text-decoration: none; }
   a:hover {
     border-bottom-color: transparent;
-    color: #1cb495 !important;
+    color: #1cb495;
     text-decoration: none; }
 
 strong, b {
@@ -444,8 +462,13 @@ ul.icons {
       color: inherit; }
 
 /* Form */
-form {
-  margin: 0 0 2em 0; }
+iframe {
+  margin: 0 0 2em 0;
+  align-self: center; }
+
+  iframe.div.a {
+  margin: 0 0 2em 0;
+  align-self: center; }
   form .message {
     text-decoration: none;
     -moz-transition: opacity 0.2s ease-in-out, -moz-transform 0.2s ease-in-out;
@@ -835,53 +858,146 @@ button,
         position: absolute; } }
 
 /* Footer */
-#footer {
-  -moz-transition: opacity 0.5s ease-in-out;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  -ms-transition: opacity 0.5s ease-in-out;
-  transition: opacity 0.5s ease-in-out;
-  bottom: 4em;
-  color: rgba(255, 255, 255, 0.5);
-  left: 4em;
-  opacity: 0.5;
-  position: absolute; }
+
+  #footer {
+    -moz-transition: opacity 0.5s ease-in-out;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    width: 100% !important;
+    bottom: 0 !important;
+    left: auto !important;
+    position: relative !important;
+    flex-shrink: 0;
+    color: #ffffff;
+    background-size: auto, contain;
+    background-position: center, center;
+    opacity: 0.5;
+  }
+
+/* USER ADDED CSS BELOW */
+
   #footer .icons {
-    margin: 0 0 0.5em 0; }
+    margin: 0 0 0 0;
+    justify-self: center;
+  }
+
+    /* .icon.brands.fa-spotify {
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+  .icon.brands.fa-apple {
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+  .icon.brands.fa-soundcloud {
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+  .icon.brands.fa-youtube {
+    color: #ffffff;
+    transition: color 0.3s ease;
+  } */
+
+  .custom-icon {
+    font-size: 2em; /* Adjust this value to make the icons larger or smaller */
+    transition: color 0.3s ease;
+    color: #ffffff
+  }
+
+  .icon.brands.fa-spotify:hover, .icon.brands.fa-spotify:active {
+    color: #1db954 !important;
+  }
+
+  .icon.brands.fa-apple:hover, .icon.brands.fa-apple:active {
+    color: #fa2d48 !important;
+  }
+
+  .icon.brands.fa-soundcloud:hover, .icon.brands.fa-soundcloud:active {
+    color: #ff5500 !important;
+  }
+
+  .icon.brands.fa-youtube:hover, .icon.brands.fa-youtube:active {
+    color: #ff0000 !important;
+  }
+
   #footer .copyright {
-    font-size: 0.8em;
+    font-size: 0.9em;
     list-style: none;
-    padding: 0; }
-    #footer .copyright li {
-      border-left: solid 1px rgba(255, 255, 255, 0.25);
-      display: inline-block;
-      line-height: 1em;
-      margin: 0 0 0 0.75em;
-      padding: 0 0 0 0.75em; }
-      #footer .copyright li:first-child {
-        border-left: 0;
-        margin-left: 0;
-        padding-left: 0; }
-    #footer .copyright a {
-      color: inherit; }
+    justify-self: center;
+    padding: 0;
+  }
+
+  #footer .copyright li {
+    border-left: solid 1px rgba(255, 255, 255, 0.25);
+    display: inline-block;
+    line-height: 1em;
+    margin: 0 0 0 0.75em;
+    padding: 0 0 0 0.75em;
+  }
+
+  #footer .copyright li:first-child {
+    border-left: 0;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  #footer .copyright a {
+    color: inherit;
+  }
+
   #footer:hover {
-    opacity: 1; }
+    opacity: 1;
+  }
+
   #footer > :last-child {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+  }
+
   @media screen and (max-width: 1680px) {
     #footer {
-      bottom: 3.5em;
-      left: 3.5em; } }
+      width: 100% !important;
+      bottom: 0 !important;
+      left: auto !important;
+      position: relative !important;
+    }
+  }
+
   @media screen and (max-width: 736px) {
     #footer {
-      bottom: 2em;
-      left: 2em; } }
+      width: 100% !important;
+      bottom: 0 !important;
+      left: auto !important;
+      position: relative !important;
+    } 
+  }
+
   @media screen and (max-width: 360px) {
     #footer {
-      bottom: 1.25em;
-      left: 1.25em; } }
+      width: 100% !important;
+      bottom: 0 !important;
+      left: auto !important;
+      position: relative !important;
+    } 
+  }
+
   @media screen and (max-height: 640px) {
     #footer {
-      bottom: auto;
-      left: auto;
-      margin: 1em 0 0 0;
-      position: relative; } }
+      width: 100% !important;
+      bottom: 0 !important;
+      left: auto !important;
+      position: relative !important;
+    }
+  }
+
+#playerSection {
+  flex: 1 0 auto;
+  position: relative;
+  justify-content: center;
+  /* padding: 20px 0; */
+}
+
+#playerSection iframe {
+  max-width: 100%;
+  justify-self: center;
+}
