@@ -1,82 +1,45 @@
 <!DOCTYPE HTML>
 
 <html>
-<head>
-    <title>neutron squared</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-</head>
-<body class="is-preload">
+	<head>
+		<title>403 Forbidden</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!-- Open Graph meta tags -->
+		<meta property="og:title" content="neutron squared">
+		<meta property="og:description" content="Some things must be hidden - 403 Forbidden">
+		<meta property="og:image" content="images/Secret.jpg">
+		<meta property="og:url" content="https://neutronsquared.com/404.html">
+		<meta property="og:type" content="website">
+		
+		<!-- Fallback image for non-social media platforms -->
+		<meta property="og:image:secure_url" content="images/Secret.jpg">
+		<meta property="og:image:type" content="image/jpg">
+		<link rel="stylesheet" href="assets/css/403.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
 
-    <!-- Header -->
-    <header id="header">
-        <!-- <h1></h1>
-        <p><br />
-        </a></p> -->
-    </header>
+	<body class="'is-preload">
 
-    <!-- Player Section -->
-    <div id="playerSection" style="text-align: center; margin: 20px 0;"></div>
-    <!-- <div id="playerSection"></div> -->
+		<section id="wrapper">
+			<div class="forbidden-content">
+				<p class="major">403 FORBIDDEN</p>
+				<p><!-- Some things must be hidden</p> --></br>
+				<div class="image-container">
+					<img src="https://res.cloudinary.com/dw5m4wus8/image/upload/v1768451295/Secret_m8mgez.jpg" alt="Secret" class="secret-image">
+				</div>
+			</div>
+		</section>
 
-    <!-- Footer -->
-    <footer id="footer">
-        <ul class="icons">
-            <li><a href="#" onclick="loadPlayer('spotify')" class="icon brands fa-spotify custom-icon"><span class="label">Spotify</span></a></li>
-            <li><a href="#" onclick="loadPlayer('apple')" class="icon brands fa-apple custom-icon"><span class="label">Apple Music</span></a></li>
-            <li><a href="#" onclick="loadPlayer('soundcloud')" class="icon brands fa-soundcloud custom-icon"><span class="label">SoundCloud</span></a></li>
-            <li><a href="#" onclick="loadPlayer('youtube')" class="icon brands fa-youtube custom-icon"><span class="label">YouTube Music</span></a></li>
-            <!-- <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li> -->
-        </ul>
-        <ul class="copyright">
-            <li>&copy; 2021-<span id="currentYear"></span> <a href="https://hearingcolors.com"> Hearing Colors LLC</a>. All rights reserved.</li>
-        </ul>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        const currentYear = new Date().getFullYear();
-        document.getElementById('currentYear').textContent = currentYear;
-
-
-        let activeService = null;
-
-        function loadPlayer(service) {
-            if (activeService === service) {
-                document.getElementById('playerSection').innerHTML = '';
-                activeService = null;
-                return;
-            }
-
-            let playerHTML = '';
-            switch (service) {
-                case 'soundcloud':
-                    playerHTML = `
-                    <iframe id="soundcloud" width="600" height="600" scrolling="yes" frameborder="yes" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/888528673&color=%2314102b&auto_play=true&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
-                    <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100; text-align: center">
-                        <a href="https://soundcloud.com/neutronsquared" title="neutron squared" target="_blank" style="color: #cccccc; text-decoration: none;">neutron squared</a> · 
-                        <a href="https://soundcloud.com/neutronsquared/looking-to-the-stars-for-direction-radio-edit" title="Looking to the Stars for Direction (Hearing Colors) [Radio Edit]" target="_blank" style="color: #cccccc; text-decoration: none;">Looking to the Stars for Direction (Hearing Colors) [Radio Edit]</a>
-                    </div>`;
-                    break;
-                case 'spotify':
-                    playerHTML = `
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7HX5nTBxYSohWqfEa5u0GQ?utm_source=generator" width="75%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
-                    break;
-                case 'apple':
-                    playerHTML = `
-                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/album/looking-to-the-stars-for-direction-hearing-colors/1546858178?i=1546858179"></iframe>`;
-                    break;
-                case 'youtube':
-                    playerHTML = `
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/jLrvtvYyIGE?si=D0J7CTyKF-nwySTT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
-                    break; 
-            }
-            document.getElementById('playerSection').innerHTML = playerHTML;
-            activeService = service;
-        }
-    </script>
-    <script src="assets/js/main.js"></script>
-
-</body>
-</html>
+		<footer>
+			<ul class="copyright">
+				<li>&copy; <span id="currentYear"></span> Hearing Colors LLC. All rights reserved.</li>
+				<script>
+				const currentYear = new Date().getFullYear();
+				document.getElementById('currentYear').textContent = currentYear;
+				</script>
+			</ul>
+		</footer>
+	
+	</body>
+	</html>
