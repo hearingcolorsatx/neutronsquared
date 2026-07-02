@@ -145,12 +145,12 @@ body {
   -webkit-transition: opacity 2s ease-in-out;
   -ms-transition: opacity 2s ease-in-out;
   transition: opacity 2s ease-in-out;
-  height: 125%;
-  left: -50%;
-  opacity: 0.375;
   position: fixed;
-  top: -94%;
-  width: 125%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.375;
+  overflow: hidden;
   z-index: 1;
   background-repeat: no-repeat; }
   #bg div {
@@ -158,13 +158,14 @@ body {
     -webkit-transition: opacity 3s ease;
     -ms-transition: opacity 3s ease;
     transition: opacity 3s ease;
-    background-size: contain;
+    background-size: cover;
+    background-position: center 10%;
     background-repeat: no-repeat;
     height: 175%;
     left: 0;
     opacity: 0;
     position: absolute;
-    top: 0;
+    top: -75%;
     visibility: hidden;
     width: 175%; }
     #bg div.visible {
@@ -860,19 +861,17 @@ button,
 /* Footer */
 
   #footer {
-    -moz-transition: opacity 0.5s ease-in-out;
-    -webkit-transition: opacity 0.5s ease-in-out;
-    -ms-transition: opacity 0.5s ease-in-out;
-    transition: opacity 0.5s ease-in-out;
+    position: fixed !important;
+    left: 50% !important;
+    bottom: 2rem !important;
+    transform: translateX(-50%);
     width: 100% !important;
-    bottom: 0 !important;
-    left: auto !important;
-    position: relative !important;
-    flex-shrink: 0;
+    z-index: 4;
+
+    text-align: center;
     color: #ffffff;
-    background-size: auto, contain;
-    background-position: center, center;
     opacity: 0.5;
+    transition: opacity 0.5s ease-in-out;
   }
 
 /* USER ADDED CSS BELOW */
@@ -954,7 +953,7 @@ button,
     margin-bottom: 0;
   }
 
-  @media screen and (max-width: 1680px) {
+  /* @media screen and (max-width: 1680px) {
     #footer {
       width: 100% !important;
       bottom: 0 !important;
@@ -988,13 +987,42 @@ button,
       left: auto !important;
       position: relative !important;
     }
-  }
+  } */
 
 #playerSection {
-  flex: 1 0 auto;
-  position: relative;
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+
+  display: none;
+  align-items: center;
   justify-content: center;
-  padding: 20px 0;
+
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+#playerSection.active {
+  display: flex;
+}
+
+.player-wrapper {
+  width: min(800px, 90vw);
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-wrapper iframe {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+#playerSection iframe,
+#playerSection div {
+  pointer-events: auto;
 }
 
 #playerSection iframe {
@@ -1003,7 +1031,34 @@ button,
 }
 
 #soundcloud {
-  max-width: 100%;
-  justify-self: center;
-  margin-top: 10em;
+  width: min(400px, 90vw);
+  height: min(400px, 70vh);
+  margin-top: 0;
+}
+
+
+@media screen and (max-width: 736px) {
+  #bg {
+    position: fixed;
+    inset: 0;
+    width: 200%;
+    height: 200%;
+  }
+
+  #bg div {
+    width: 100%;
+    height: 100%;
+    top: -50%;
+    left: 0;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  #footer {
+    bottom: 1.25rem !important;
+  }
+
+  #playerSection {
+    padding-bottom: 7rem;
+  }
 }
